@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesse Boutique - Commande</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="tracking-header">
+            <div class="header-content">
+                <div class="header-left-group">
+                    <h1 class="logo-large">Nesse<br><span class="live-text">Boutique</span></h1>
+                    <button class="return-btn" onclick="window.location.href='pages/order_tracking.html'">
+                        Suivi de la commande
+                    </button>               
+                 </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Formulaire de commande -->
+            <form class="order-form" id="orderForm" method="POST" action="">
+                <!-- Section Montant total -->
+                <section class="section">
+                    <h2 class="section-title">Montant total</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="montant" placeholder="Montant" id="montant">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="reference" placeholder="Référence de la commande" id="reference">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="pseudo" placeholder="Pseudo TikTok" id="pseudo">
+                    </div>
+                </section>
+
+                <!-- Section Adresse de livraison -->
+                <section class="section">
+                    <h2 class="section-title">Adresse de livraison</h2>
+                    <div class="form-group">
+                        <input type="email" class="form-input" name="email" placeholder="E-mail" id="email" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <input type="text" class="form-input" name="prenom" placeholder="Prénom" id="prenom" required>
+                        </div>
+                        <div class="form-group half">
+                            <input type="text" class="form-input" name="nom" placeholder="Nom" id="nom" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="adresse" placeholder="Adresse" id="adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="ville" placeholder="Ville" id="ville" required>
+                    </div>
+                    <div class="form-group">
+                       <input type="text" class="form-input" name="code_postal" placeholder="Code postal" id="code_postal" required>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="pays" placeholder="Pays" id="pays" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-input" name="telephone" placeholder="Numéro de téléphone" id="telephone">
+                    </div>
+                </section>
+
+                <!-- Section Mode de livraison -->
+                <section class="section">
+                    <h2 class="section-title">Mode de livraison</h2>
+                    <div class="shipping-options">
+                        <div class="shipping-option">
+                            <input type="radio" id="chronopost" name="shipping_method" value="chronopost" checked>
+                            <label for="chronopost" class="shipping-label">
+                                <div class="shipping-icon">
+                                    <img src="./images/chronopost.png" alt="Chronopost" width="50" height="50">
+                                </div>
+                                <div class="shipping-info">
+                                    <div class="shipping-name">Chronopost</div>
+                                    <div class="shipping-time">1 à 2 jours ouvrables</div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="shipping-option">
+                            <input type="radio" id="mondial" name="shipping_method" value="mondial">
+                            <label for="mondial" class="shipping-label">
+                                <div class="shipping-icon">
+                                    <img src="./images/Mondial_Relay.png" alt="Mondial Relay" width="50" height="50">
+                                </div>
+                                <div class="shipping-info">
+                                    <div class="shipping-name">Mondial Relay</div>
+                                    <div class="shipping-time">3 à 5 jours ouvrables</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section Mode de paiement (affichage uniquement) -->
+                <section class="section">
+                    <h2 class="section-title">Mode de paiement</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <img src="./images/apple-pay.png" alt="Apple Pay" width="50" height="50">
+                            <span class="payment-name">Apple Pay</span>
+                        </div>
+                        <div class="payment-method">
+                            <img src="./images/paypal.png" alt="PayPal" width="50" height="50">
+                            <span class="payment-name">PayPal</span>
+                        </div>
+                        <div class="payment-method">
+                            <img src="./images/visa_logo.webp" alt="CB" width="50" height="50">
+                            <span class="payment-name">CB</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bouton de confirmation -->
+                <button type="submit" class="confirm-button">Confirmer la commande</button>
+            </form>
+
+            <!-- Message -->
+            <div id="message-container" style="display: none;">
+                <p id="message-content"></p>
+            </div>
+
+            <!-- Résumé de commande -->
+            <aside class="order-summary">
+                <h3 class="summary-title">Résumé de la commande</h3>
+                <div class="summary-content">
+                    <div class="summary-line">
+                        <span class="summary-label">Montant de la commande</span>
+                        <span class="summary-value" id="orderAmount">0,00 €</span>
+                    </div>
+                    <div class="summary-line">
+                        <span class="summary-label">Frais de livraison</span>
+                        <span class="summary-value" id="shippingCost">5,00 €</span>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-line total">
+                        <span class="summary-label">Total</span>
+                        <span class="summary-value" id="totalAmount">5,00 €</span>
+                    </div>
+                </div>
+            </aside>
+        </div> <!-- Fin main-content -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

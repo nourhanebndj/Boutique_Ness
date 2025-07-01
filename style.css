@@ -1,0 +1,808 @@
+
+:root {
+    /* Couleurs principales */
+    --color-primary: #000000; /* Noir pour les éléments principaux, boutons, titres */
+    --color-secondary: #2c3e50; /* Ancien bleu foncé, maintenant moins utilisé pour les titres */
+    --color-text-dark: #333333; /* Texte général foncé */
+    --color-text-medium: #666666; /* Texte gris moyen */
+    --color-text-light: #999999; /* Texte gris clair (placeholders, notes) */
+    --color-background-light: #ffffff; /* Fond blanc */
+    --color-background-grey: #f8f9fa; /* Fond gris très clair */
+    --color-background-input: #f5f5f5; /* Fond des champs de saisie */
+    --color-border-light: #e9ecef; /* Bordure très claire */
+    --color-border-medium: #dee2e6; /* Bordure moyenne */
+    --color-border-dark: #e0e0e0; /* Bordure plus foncée */
+    --color-accent-blue: #2196f3; /* Bleu pour les accents (radio, hover) */
+    --color-accent-blue-dark: #007bff; /* Bleu plus foncé (badges, hover) */
+    --color-accent-green: #28a745; /* Vert pour succès */
+    --color-accent-red: #dc3545; /* Rouge pour erreur/annulation */
+    --color-accent-yellow: #ffc107; /* Jaune pour pending */
+
+    --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-logo: 'Brush Script MT', cursive;
+
+    --font-size-base: 1rem; 
+    --font-size-small: 0.875rem; /* 14px */
+    --font-size-xsmall: 0.75rem; /* 12px */
+
+    --font-size-h1: 2.5rem; /* Taille pour les titres principaux (ex: logo principal) */
+    --font-size-h2: 1.8rem; /* Taille pour les titres de section */
+    --font-size-h3: 1.5rem; /* Taille pour les sous-titres */
+    --font-size-logo-script: 3rem; /* Taille harmonisée pour les logos script */
+    --font-size-button: 1rem; /* Taille pour le texte des boutons */
+    --font-size-input: 1rem; /* Taille pour le texte des inputs */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    font-size: var(--font-size-base); /* Applique la taille de police de base */
+}
+
+/* Conteneurs principaux */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Harmonisé sur la page de suivi */
+    background-color: var(--color-background-light);
+}
+
+/* Mise en page principale (utilisée sur la première page) */
+.main-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Header avec logo (première page) */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-family: var(--font-family-logo); /* Utilise la variable de police logo */
+    font-size: var(--font-size-logo-script); /* Utilise la taille harmonisée pour les logos script */
+    font-weight: normal;
+    color: var(--color-primary); /* CHANGEMENT: Couleur du logo en noir */
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.boutique {
+    font-size: var(--font-size-small); /* Harmonisé à 14px */
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--color-primary); /* CHANGEMENT: Couleur de "boutique" en noir */
+    text-transform: uppercase;
+}
+
+/* Sections générales */
+.section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: var(--font-size-h2); /* Harmonisé à 1.8rem */
+    font-weight: 600;
+    color: var(--color-primary); /* CHANGEMENT: Couleur des titres de section en noir */
+    margin-bottom: 20px;
+}
+
+/* Résumé de commande (première page) */
+.order-summary {
+    flex: 0 0 300px;
+    background-color: var(--color-background-grey);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid var(--color-border-light);
+    position: sticky;
+    top: 20px;
+}
+
+.summary-title {
+    font-size: var(--font-size-h3); /* Harmonisé à 1.5rem */
+    font-weight: 600;
+    color: var(--color-primary); /* CHANGEMENT: Couleur du titre du résumé en noir */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.summary-line.total {
+    font-weight: 600;
+    font-size: var(--font-size-h3); /* Harmonisé à 1.5rem */
+    color: var(--color-primary); /* CHANGEMENT: Couleur du total en noir */
+}
+
+.summary-label {
+    color: var(--color-text-medium);
+    font-size: var(--font-size-small); /* Harmonisé à 14px */
+}
+
+.summary-line.total .summary-label {
+    color: var(--color-primary); /* CHANGEMENT: Couleur du label total en noir */
+    font-size: var(--font-size-base); /* Harmonisé à 16px */
+}
+
+.summary-value {
+    font-weight: 600;
+    color: var(--color-primary); /* CHANGEMENT: Couleur de la valeur en noir */
+}
+
+.summary-divider {
+    height: 1px;
+    background-color: var(--color-border-medium);
+    margin: 10px 0;
+}
+
+/* Formulaire (première page) */
+.order-form {
+    flex: 1;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid transparent;
+    background-color: var(--color-background-input);
+    border-radius: 8px;
+    font-size: var(--font-size-input); /* Harmonisé à 16px */
+    color: var(--color-text-medium);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    background-color: var(--color-border-medium); /* Utilise une couleur existante */
+    border-color: var(--color-border-dark);
+}
+
+.form-input::placeholder {
+    color: var(--color-text-light);
+}
+
+/* Options de livraison (première page) */
+.shipping-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.shipping-option {
+    position: relative;
+}
+
+.shipping-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.shipping-label {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--color-background-light);
+    border: 2px solid var(--color-border-dark);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.shipping-label:hover {
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+}
+
+.shipping-option input[type="radio"]:checked + .shipping-label {
+    border-color: var(--color-accent-blue);
+    background-color: var(--color-background-grey);
+}
+
+.shipping-option input[type="radio"]:checked + .shipping-label::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-accent-blue);
+    border: 2px solid var(--color-background-light);
+    box-shadow: 0 0 0 2px var(--color-accent-blue);
+}
+
+.shipping-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+
+.chronopost-icon .icon-box {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-background-light);
+    border-radius: 3px;
+}
+
+
+.mondial-icon .icon-relay {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-background-light);
+    border-radius: 50%;
+}
+
+.shipping-info {
+    flex: 1;
+}
+
+.shipping-name {
+    font-size: var(--font-size-base); 
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 2px;
+}
+
+.shipping-time {
+    font-size: var(--font-size-small); 
+    color: var(--color-text-medium);
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 30px;
+    margin-right: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.apple-pay {
+    background-color: var(--color-primary);
+    border-radius: 6px;
+    position: relative;
+}
+
+.apple-pay::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 12px;
+    background-color: var(--color-background-light);
+    border-radius: 3px;
+}
+
+.paypal {
+    
+    border-radius: 6px;
+    position: relative;
+}
+
+.paypal::after {
+    content: 'P';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-background-light);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.visa {
+    border-radius: 6px;
+    position: relative;
+}
+
+.visa::after {
+    content: 'VISA';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-background-light);
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.payment-name {
+    font-size: var(--font-size-base); 
+    font-weight: 500;
+    color: var(--color-primary); 
+}
+
+.confirm-button {
+    width: 100%;
+    padding: 18px;
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+    border: none;
+    border-radius: 12px;
+    font-size: var(--font-size-button); 
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+.confirm-button:hover {
+    background-color: var(--color-text-dark); 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.tracking-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    position: relative;
+    padding: 0 20px;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.header-left-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.logo-large {
+    font-family: var(--font-family-logo); 
+    font-size: var(--font-size-logo-script); 
+    font-weight: 900; 
+    color: var(--color-primary);
+    line-height: 0.85;
+    letter-spacing: -3px;
+    margin: 0;
+    text-align: center;
+}
+
+.live-text {
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    font-style: italic;
+    display: block;
+}
+
+.return-btn  {
+    background-color: var(--color-primary);
+    border: none;
+    color: var(--color-background-light);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: var(--font-size-button);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    min-width: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    text-decoration: none;
+}
+
+.return-btn:hover {
+    background-color: var(--color-text-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+}
+
+.return-btn:active {
+    transform: translateY(0);
+}
+
+.tracking-main {
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 20px;
+}
+
+.order-tracking h2 {
+    font-size: var(--font-size-h2); /* Harmonisé à 1.8rem */
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tracking-note {
+    text-align: left;
+    color: var(--color-text-medium);
+    font-size: var(--font-size-small); /* Harmonisé à 14px */
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Container du tableau avec arrière-plan blanc (deuxième page) */
+.orders-table-container {
+    background: #a19999; /* Couleur spécifique pour le fond du tableau, à revoir si elle doit être harmonisée */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-medium);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles du tableau (deuxième page) */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-base); /* Harmonisé à 16px */
+}
+
+.orders-table thead {
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+}
+
+.orders-table th {
+    padding: 18px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: var(--font-size-small); /* Harmonisé à 14px */
+    letter-spacing: 0.5px;
+    border-right: 1px solid var(--color-text-dark);
+}
+
+.orders-table th:last-child {
+    border-right: none;
+}
+
+.orders-table tbody tr {
+    background-color: var(--color-background-light);
+    border-bottom: 1px solid var(--color-border-medium);
+}
+
+.orders-table tbody tr:hover {
+    background-color: var(--color-background-grey);
+}
+
+.orders-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.orders-table td {
+    padding: 18px 20px;
+    vertical-align: middle;
+    border-right: 1px solid var(--color-border-medium);
+    color: var(--color-text-dark);
+}
+
+.orders-table td:last-child {
+    border-right: none;
+}
+
+/* Styles pour les différents types de contenu du tableau */
+.orders-table td:first-child {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.orders-table td:nth-child(3) {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Statut avec badges (deuxième page) */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: var(--font-size-xsmall); /* Harmonisé à 12px */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pending {
+    background-color: var(--color-accent-yellow);
+    color: var(--color-primary);
+}
+
+.status-shipped {
+    background-color: var(--color-accent-blue-dark);
+    color: var(--color-background-light);
+}
+
+.status-delivered {
+    background-color: var(--color-accent-green);
+    color: var(--color-background-light);
+}
+
+.status-cancelled {
+    background-color: var(--color-accent-red);
+    color: var(--color-background-light);
+}
+
+/* Message "Aucune commande" (deuxième page) */
+.no-orders td {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--color-text-light);
+    font-style: italic;
+    font-size: var(--font-size-base); /* Harmonisé à 16px */
+    background-color: var(--color-background-light);
+}
+
+.no-orders td::before {
+    content: '📦';
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* Animations d'entrée (deuxième page) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tracking-main {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.tracking-header {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* Effets de survol pour les éléments interactifs */
+.orders-table tbody tr {
+    cursor: pointer;
+}
+
+.orders-table tbody tr:hover td:first-child {
+    color: var(--color-accent-blue-dark);
+    font-weight: 700;
+}
+
+/* Animation de chargement pour les futures données */
+.loading-row {
+    background: linear-gradient(90deg, var(--color-background-input) 25%, var(--color-border-medium) 50%, var(--color-background-input) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Amélioration de l'accessibilité */
+.orders-table th:focus,
+.return-btn:focus {
+    outline: 2px solid var(--color-accent-blue-dark);
+    outline-offset: 2px;
+}
+
+/* Styles pour les tooltips (si ajoutés plus tard) */
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-text-dark);
+    color: var(--color-background-light);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: var(--font-size-small); /* Harmonisé à 14px */
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .order-summary {
+        flex: none;
+        position: static;
+        order: 2;
+    }
+    
+    .order-form {
+        max-width: none;
+        order: 1;
+    }
+    
+    .logo, .logo-large { /* Applique la même taille responsive aux deux logos script */
+        font-size: 2.5rem; /* Ajusté pour être cohérent sur mobile */
+    }
+
+    .live-text {
+        font-size: 1.8rem; /* Ajusté pour être cohérent sur mobile */
+    }
+
+    .tracking-header {
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+    
+    .header-left-group {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .return-btn {
+        position: static;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: var(--font-size-small); /* Harmonisé à 14px */
+        min-width: 80px;
+    }
+    
+    .tracking-main {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    .order-tracking h2, .section-title { /* Harmonise les titres de section */
+        font-size: 1.5rem;
+    }
+    
+    /* Tableau responsive */
+    .orders-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .orders-table {
+        min-width: 600px;
+    }
+    
+    .orders-table th,
+    .orders-table td {
+        padding: 15px 12px;
+        font-size: var(--font-size-small); /* Harmonisé à 14px */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo, .logo-large {
+        font-size: 2rem; /* Encore plus petit sur très petits écrans */
+    }
+    
+    .live-text {
+        font-size: 1.5rem;
+    }
+    
+    .order-tracking h2, .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .tracking-note {
+        font-size: var(--font-size-small); /* Harmonisé à 14px */
+    }
+    
+    .orders-table th,
+    .orders-table td {
+        padding: 12px 10px;
+        font-size: var(--font-size-xsmall); /* Harmonisé à 12px */
+    }
+    
+    .tracking-main {
+        padding: 20px 15px;
+    }
+}

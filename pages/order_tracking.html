@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesse Boutique - Suivi des commandes</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="tracking-header">
+            <div class="header-content">
+                <div class="header-left-group">
+                    <h1 class="logo-large">Nesse<br><span class="live-text">Boutique</span></h1>
+                    <button class="return-btn" onclick="window.location.href='../index.html'">
+                    Retour
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="tracking-main">
+            <section class="order-tracking">
+                <h2>VOTRE COMMANDE</h2>
+                <p class="tracking-note">* Seules les commandes passées à partir de votre appareil actuel sont affichées ici.</p>
+
+                <div class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Référence</th>
+                                <th>Date</th>
+                                <th>Prix total</th>
+                                <th>Transporteur</th>
+                                <th>Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody">
+                            <!-- Les commandes seront ajoutées dynamiquement via JavaScript -->
+                            <tr class="no-orders">
+                                <td colspan="5">Aucune commande trouvée</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+</html>
+
